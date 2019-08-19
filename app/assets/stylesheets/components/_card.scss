@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 4px;
+
+img {
+  height: 200px;
+  width: 100%;
+
+ h2 {
+  font-size: 16px;
+  font-weight: bold;
+
+ p {
+  font-size: 12px;
+      }
+    }
+  }
+}
+
+h2 {
+  text-align: center;
+}
+
+// .container .card-info {
+//   padding: 16px;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: flex-end;
+//   position: relative;
+// }
