@@ -21,3 +21,13 @@ abbr{
   justify-content: center;
   color:black;
 }
+.fa-6x{
+  display:flex;
+  align-items:center;
+  justify-content: center;
+  color:black;
+}
+.nounderline:hover{
+  list-style-type: none;
+  text-decoration: none;
+}
