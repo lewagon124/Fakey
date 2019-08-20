@@ -13,11 +13,11 @@
       <!-- if the user is signed in, this is shown on nav bar-->
       <% if user_signed_in? %>
 
-        <li>
+<!--         <li>
           <%=link_to "#", class: "nav-link" do%>
             <button type="button" class="btn btn-default">Check Out!</button>
           <% end %>
-        </li>
+        </li> -->
 
         <li class="nav-item active item">
           <%= link_to "#", class: "nav-link" do%>
@@ -29,6 +29,12 @@
         <li class="nav-item item">
           <%= link_to "#", class: "nav-link" do%>
           <i class="fa fa-heart"></i>
+          <% end %>
+        </li>
+
+        <li class="nav-item item">
+          <%= link_to "#", class: "nav-link" do%>
+          <i class="fa fa-shopping-cart"></i>
           <% end %>
         </li>
 
@@ -58,6 +64,12 @@
         <li class="nav-item item">
           <%= link_to "#", class: "nav-link" do%>
           <i class="fa fa-heart"></i>
+          <% end %>
+        </li>
+
+        <li class="nav-item item">
+          <%= link_to "#", class: "nav-link" do%>
+          <i class="fa fa-shopping-cart"></i>
           <% end %>
         </li>
 
