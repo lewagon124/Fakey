@@ -1,0 +1,72 @@
+.signupcontainer{
+width:100%;
+height: 90vh;
+display:flex;
+justify-content: center;
+color:white;
+}
+.rightwindow{
+border: 1px solid black;
+width: 50%;
+height:100%;
+display:flex;
+justify-content: center;
+align-items:center;
+background-repeat:no-repeat;
+background-size:cover;
+  .SignUp{
+    text-align: center;
+  }
+  .pick{
+    padding:10px;
+    padding-left:80px;
+    padding-right:80px;
+    color:white;
+    background-color:#A9A9A9;
+    border-radius: 0.4em;
+  }
+  .pick:hover{
+    text-decoration: none;
+  }
+}
+
+
+.leftwindow{
+border: 1px solid black;
+width:50%;
+height:100%;
+display:flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+background-repeat:no-repeat;
+background-size:cover;
+  .button{
+    border-radius: 0.4em;
+    width: 20em;
+    height: 2em;
+    background-color: #A9A9A9;
+    width: 340px;
+    height: 40px;
+    color: white;
+    margin-top: 20px;
+    box-shadow: 5px 5px 2px 1px rgba(0, 0, 255, .2);
+  }
+  .email, .password{
+    border-radius:0.4em;
+  }
+  #title{
+  font-size: 30px;
+  letter-spacing: .02em;
+  }
+  ::-webkit-input-placeholder{
+  text-align:center;
+  }
+}
+.white{
+  color:white;
+}
+.white:hover{
+  text-decoration:none;
+  color:#A9A9A9;
+}
