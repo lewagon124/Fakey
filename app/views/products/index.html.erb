@@ -1,3 +1,4 @@
+
 <p id="notice"><%= notice %></p>
 
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(assets/banner1.jpg);">
@@ -8,16 +9,20 @@
 <br>
 <div class="container">
   <div class="cards-grid">
+    <% @products.each do |product| %>
       <div class="card">
+        <%= link_to product_path(product) do  %>
         <img src="assets/grey_hoodie.png">
+        <% end %>
         <div class="card-info">
-          <p>Grey Cotton Hoodie</p>
+          <p><%= product.name%></p>
           <h3>$2.99</h3>
         </div>
       </div>
-
+    <% end %>
+<!--
       <div class="card">
-        <img src="assets/purple_hoodie.png">
+        <a href=""><img src="assets/purple_hoodie.png"></a>
         <div class="card-info">
           <p>Purple Cotton hoodie</p>
           <h3>$2.99</h3>
@@ -25,7 +30,7 @@
       </div>
 
       <div class="card">
-        <img src="assets/stripe_crew.png">
+        <a href=""><img src="assets/stripe_crew.png"></a>
         <div class="card-info">
           <p>Stripe Crew</p>
           <h3>$2.99</h3>
@@ -33,7 +38,7 @@
       </div>
 
       <div class="card">
-        <img src="assets/purple_crew.png">
+        <a href=""><img src="assets/purple_crew.png"></a>
         <div class="card-info">
           <p>Purple Crew</p>
           <h3>$2.99</h3>
@@ -41,7 +46,7 @@
       </div>
 
       <div class="card">
-          <img src="assets/black_fleece.png">
+          <a href=""><img src="assets/black_fleece.png"></a>
           <div class="card-info">
             <p>Black sweatpants</p>
             <h3>$2.99</h3>
@@ -49,7 +54,7 @@
         </div>
 
         <div class="card">
-          <img src="assets/grey_fleece.png">
+          <a href=""><img src="assets/grey_fleece.png"></a>
           <div class="card-info">
             <p>Grey sweatpants</p>
             <h3>$2.99</h3>
@@ -57,7 +62,7 @@
         </div>
 
         <div class="card">
-          <img src="assets/wash_denim.png">
+          <a href=""><img src="assets/wash_denim.png"></a>
           <div class="card-info">
             <p>Navy denim pants</p>
             <h3>$2.99</h3>
@@ -65,7 +70,7 @@
         </div>
 
         <div class="card">
-          <img src="assets/burgundy_denim.png">
+          <a href=""><img src="assets/burgundy_denim.png"></a>
           <div class="card-info">
             <p>Burgundy denim pants</p>
             <h3>$2.99</h3>
@@ -73,7 +78,7 @@
         </div>
 
         <div class="card">
-            <img src="assets/blue_onesie.png">
+            <a href=""><img src="assets/blue_onesie.png"></a>
             <div class="card-info">
               <p>Blue cotton onesie</p>
               <h3>$2.99</h3>
@@ -81,7 +86,7 @@
           </div>
 
           <div class="card">
-            <img src="assets/grey_onesie.png">
+            <a href=""><img src="assets/grey_onesie.png"></a>
             <div class="card-info">
               <p>Grey cotton onesie</p>
               <h3>$2.99</h3>
@@ -89,7 +94,7 @@
           </div>
 
           <div class="card">
-            <img src="assets/pink_onesie.png">
+            <a href=""><img src="assets/pink_onesie.png"></a>
             <div class="card-info">
               <p>Pink cotton onesie</p>
               <h3>$2.99</h3>
@@ -97,13 +102,13 @@
           </div>
 
           <div class="card">
-            <img src="assets/stripe_onesie.png">
+            <a href=""><img src="assets/stripe_onesie.png"></a>
             <div class="card-info">
               <p>Stripe cotton onesie</p>
               <h3>$2.99</h3>
             </div>
           </div>
-
+ -->
 
   </div>
 </div>
