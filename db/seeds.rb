@@ -11,6 +11,6 @@ User.create!(email: "test@test.com", password: "123456")
 hoodie1 = Product.create!({
   name: 'Graphic Hoodie',
   desc: "100 Cotton",
-  cost: "$5.00",
+  cost: '$5.00',
   user: User.first
   })

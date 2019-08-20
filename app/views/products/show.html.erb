@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+<img src="assets/grey_hoodie.png">
+<div>
+
 <p>
   <strong>Name:</strong>
   <%= @product.name %>
@@ -14,13 +17,14 @@
   <strong>Desc:</strong>
   <%= @product.desc %>
 </p>
+</div>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
-
 
 <% if user_signed_in? %>
 <%= link_to 'Sign Out', destroy_user_session_path, :method =>:delete %>
 <% else %>
 <%= link_to 'Sign In', new_user_session_path %>
 <%end%>
+
