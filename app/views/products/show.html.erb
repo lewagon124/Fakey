@@ -1,8 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<img src="assets/grey_hoodie.png">
-<div>
-
+<img src="assets/grey_hoodie.png" class="show-img">
+<div class="show-info">
 <p>
   <strong>Name:</strong>
   <%= @product.name %>
@@ -19,6 +18,7 @@
 </p>
 </div>
 
+<div class="show-info">
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
 
@@ -27,4 +27,5 @@
 <% else %>
 <%= link_to 'Sign In', new_user_session_path %>
 <%end%>
+</div>
 
