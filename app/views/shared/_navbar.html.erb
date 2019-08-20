@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light bg-light navbar-lewagon">
-  <%= link_to bookings_path, class: "navbar-brand" do %>
+  <%= link_to products_path, class: "navbar-brand item" do %>
     <%= image_tag "fakey_logo.png" %>
     <% end %>
 <!-- this is the button to popup and down -->
@@ -12,32 +12,62 @@
     <ul class="navbar-nav mr-auto">
       <!-- if the user is signed in, this is shown on nav bar-->
       <% if user_signed_in? %>
-        <li class="nav-item active">
+
+        <li>
+          <%=link_to "#", class: "nav-link" do%>
+            <button type="button" class="btn btn-default">Check Out!</button>
+          <% end %>
+        </li>
+
+        <li class="nav-item active item">
           <%= link_to "#", class: "nav-link" do%>
           <i class="fas fa-search"></i>
           <% end %>
         </li>
 
 
-        <li class="nav-item">
+        <li class="nav-item item">
           <%= link_to "#", class: "nav-link" do%>
           <i class="far fa-heart"></i>
           <% end %>
         </li>
+
         <!-- if the user is signed in has a popout bar -->
         <li class="nav-item dropdown">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
+            <%= link_to "Profile", "#", class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
+
       <% else %>
         <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <%= link_to new_user_session_path, class: "nav-link" do%>
+            <button type="button" class="btn btn-default">Log In</button>
+          <% end %>
+        </li>
+
+        <li class="nav-item active item">
+          <%= link_to "#", class: "nav-link" do%>
+          <i class="fas fa-search"></i>
+          <% end %>
+        </li>
+
+
+        <li class="nav-item item">
+          <%= link_to "#", class: "nav-link" do%>
+          <i class="far fa-heart"></i>
+          <% end %>
+        </li>
+
+         <li class="nav-item dropdown">
+          <%= link_to "#", class: "profile" do%>
+            <i class="fas fa-user-circle fa-2x"></i>
+          <% end %>
         </li>
       <% end %>
+
     </ul>
   </div>
 </div>
