@@ -14,3 +14,19 @@ hoodie1 = Product.create!({
   cost: "$5.00",
   user: User.first
   })
+
+hoodie2 = Product.create!({
+  name: 'Graphic Hoodie',
+  desc: "100 Cotton",
+  cost: "$5.00",
+  user: User.first
+  })
+
+hoodie3 = Product.create!({
+  name: 'Graphic Hoodie',
+  desc: "100 Cotton",
+  cost: "$5.00",
+  user: User.first
+  })
+
+
