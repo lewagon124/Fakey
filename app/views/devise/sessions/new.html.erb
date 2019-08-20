@@ -1,5 +1,5 @@
-<div class="signupcontainer">
-  <div class="leftwindow" style="background-image: url(<%=image_url('cloth2.jpg')%>)">
+<div class="signupcontainer" style="background-image: url(<%=image_url('banner1.jpg')%>)">
+  <div class="leftwindow" >
     <h2 id="title">SIGN IN</h2>
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-inputs">
@@ -26,7 +26,7 @@
       <%= render "devise/shared/links" %>
     <% end %>
   </div>
-  <div class="rightwindow" style="background-image: url(<%=image_url('cloth3.jpg')%>)">
+  <div class="rightwindow">
     <div class="SignUp">
       <h3 id="title">Need an account?</h3>
       </br>
