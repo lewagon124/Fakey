@@ -9,14 +9,18 @@
 <br>
 <div class="container">
   <div class="cards-grid">
+    <% @products.each do |product| %>
       <div class="card">
-        <a href=""><img src="assets/grey_hoodie.png"></a>
+        <%= link_to product_path(product) do  %>
+        <img src="assets/grey_hoodie.png">
+        <% end %>
         <div class="card-info">
-          <p>Grey Cotton Hoodie</p>
+          <p><%= product.name%></p>
           <h3>$2.99</h3>
         </div>
       </div>
-
+    <% end %>
+<!--
       <div class="card">
         <a href=""><img src="assets/purple_hoodie.png"></a>
         <div class="card-info">
@@ -104,7 +108,7 @@
               <h3>$2.99</h3>
             </div>
           </div>
-
+ -->
 
   </div>
 </div>
