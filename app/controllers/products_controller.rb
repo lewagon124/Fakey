@@ -11,6 +11,7 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
   end
+
   def add_to_cart
     @product = Product.find(params[:id])
     @user = current_user

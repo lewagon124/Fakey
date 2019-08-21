@@ -1,6 +1,7 @@
       <div class="containernew">
-        <div class="col-md-6 leftside">
-          <div class="product col-md-3 service-image-left">
+        <div class="col-md-6 leftside" style="background-image: url('<%= cl_image_path @product.image %>')">
+          <div class="product col-md-3 service-image-left" >
+          <%# cl_image_tag @product.image, crop: :scale %>
           </div>
           <!-- <div class="container service1-items col-sm-2 col-md-2 pull-left"> -->
             <!-- <center>
@@ -19,11 +20,11 @@
 
         <div class="col-md-6 rightside">
           <div class="changes">
-            <%= @product.name %>
+            <h1> <%= @product.name %> </h1>
             <p></p>
-            <%= @product.desc %>
-            <p></p>
-            <%= @product.cost %>
+            <h2> <%= @product.desc %> </h2>
+
+            <p>$<%= @product.cost %> </p>
             <p></p>
           </div>
           <% if user_signed_in? then %>
