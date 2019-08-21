@@ -28,28 +28,23 @@
             <p></p>
           </div>
           <% if user_signed_in? then %>
-            <% if !current_user.products.include?(@products) then %>
-            <%flash[:success] = "You have added to the cart"%>
-              <%=button_to "Add to Cart", "#", :class=> "btn btn-success btn-lg btn-block" %>
-
-            <!-- type="button" class="btn btn-success btn-lg btn-block">
-              Add to Cart
-            </button> -->
-            <% else %>
-              <%= button_to "Remove from Cart", product_path(:id => @product.id ), :class=>"btn btn-success btn-lg btn-block" %>
-            <% end %>
-          <% end %>
-          </br>
-          <%= link_to products_path do%>
-            <button type="button" class="btn btn-primary btn-lg btn-block">
-              Keep Shopping
-            </button>
-          <% end %>
-          </br>
-          <button type="button" class="btn btn-danger btn-lg btn-block">
-            Favorite
-          </button>
-          </br>
-        </div>
-      </div>
+                      <% if current_user.cart.include?(@product.id.to_s) %>
+                        <%= button_to "Remove from Cart", '/products/removecart', :class=>"btn btn-success btn-lg btn-block", params:{product_id: @product.id} %>
+                      <% else %>
+                        <%=button_to "Add to Cart", '/products/addcart', :class=> "btn btn-success btn-lg btn-block", params:{product_id: @product.id } %>
+                      <% end %>
+                    <% end %>
+                    </br>
+                    <%= link_to products_path do%>
+                      <button type="button" class="btn btn-primary btn-lg btn-block">
+                        Keep Shopping
+                      </button>
+                    <% end %>
+                    </br>
+                    <button type="button" class="btn btn-danger btn-lg btn-block">
+                      Favorite
+                    </button>
+                    </br>
+                  </div>
+                </div>
 
