@@ -1,0 +1,19 @@
+.containernew{
+  display:flex;
+  height: 80vh;
+  width: 100vw;
+}
+.containernew .leftside{
+  border:1px solid black;
+}
+.containernew .rightside{
+  border:1px solid black;
+  padding: 50px;
+}
+.changes{
+  font-size: 30px;
+  text-align: center;
+}
+.service-image-left{
+  // background-image: url(<%=image_url('banner1.jpg')%>);
+}

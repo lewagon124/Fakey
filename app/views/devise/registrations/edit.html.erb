@@ -5,13 +5,9 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%=f.input :photo,
-                label: '&nbsp;'.html_safe,
-                required: false,
-                :class=>"photo" %>
     <%=f.input :photo_cache, as: :hidden,
                 label: '&nbsp;'.html_safe do %>
-    <a href="#" class="nounderline"><i class="fas fa-user-circle fa-6x"></i></a>
+    <a href="#" class="nounderline"><i class="fa fa-user-circle fa-6x"></i></a>
     <% end %>
     <%= f.input :email, required: true, autofocus: true %>
 
