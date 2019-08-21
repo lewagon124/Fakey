@@ -31,11 +31,8 @@ ActiveRecord::Schema.define(version: 2019_08_20_203105) do
     t.string "name"
     t.integer "cost"
     t.text "desc"
-    t.string "image"
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -54,5 +51,4 @@ ActiveRecord::Schema.define(version: 2019_08_20_203105) do
 
   add_foreign_key "bookings", "products"
   add_foreign_key "bookings", "users"
-  add_foreign_key "products", "users"
 end
