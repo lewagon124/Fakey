@@ -15,7 +15,10 @@ class ProductsController < ApplicationController
   def add_to_cart
      product = params[:product_id]
      user = current_user
+     p user
+     p product
      user.cart << product unless current_user.cart.include?(product)
+     p user
      user.save!
      redirect_to request.referrer
    end
