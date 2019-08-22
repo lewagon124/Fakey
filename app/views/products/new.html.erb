@@ -3,7 +3,8 @@
     <div class=" col-12 ">
       <h1>New Product</h1>
       <%= render 'form', product: @product %>
-      <%= link_to 'Back', products_path %>
+      <br>
+      <%= link_to 'Back to homepage', products_path, class: "back-btn" %>
     </div>
   </div>
 </div>

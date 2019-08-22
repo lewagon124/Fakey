@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:show, :edit, :update, :destroy, :add_to_cart, :remove_from_cart]
 
   # GET /products
   # GET /products.json
@@ -13,19 +13,41 @@ class ProductsController < ApplicationController
   end
 
   def add_to_cart
-     product = params[:product_id]
      user = current_user
-     user.cart << product unless current_user.cart.include?(product)
+     user.cart << @product.id unless current_user.cart.include?(@product)
      user.save!
+     @booking = Booking.new(product_id: @product.id, user_id: user.id, start: Date.today, end: Date.today + 30.days)
+     @booking.totalcost = ((@booking.end.to_date-@booking.start.to_date).to_i)*@product.cost
+     @booking.save
      redirect_to request.referrer
    end
+
    def remove_from_cart
-     product = params[:product_id]
      user = current_user
-     user.cart.delete(product)
+     user.cart.delete(@product.id.to_s)
      user.save!
+     @booking = Booking.find_by(product_id:params[:id])
+     @booking.delete
+
      redirect_to request.referrer
    end
+
+   def add_to_fav
+      product = params[:product_id]
+      user = current_user
+      user.fav << product unless current_user.fav.include?(product)
+      user.save!
+      redirect_to request.referrer
+    end
+
+    def remove_from_fav
+      product = params[:product_id]
+      user = current_user
+      user.fav.delete(product)
+      user.save!
+      redirect_to request.referrer
+    end
+
   # GET /products/new
   def new
     @product = Product.new
