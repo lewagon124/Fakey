@@ -8,4 +8,7 @@ class Product < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+
+  validates :name, presence: true
+  validates :cost, presence: { message: "WRONG" }
 end

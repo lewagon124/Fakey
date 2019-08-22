@@ -1,3 +1,48 @@
 <h1>My wishlist</h1>
 
 
+<tbody>
+
+  <div class="container">
+    <div class="row">
+
+        <% @user.fav.each do |fav| %>
+
+          <% product = Product.find(fav) %>
+
+          <div class="col-12 col-md-12 col-lg-4">
+
+            <% if product.image? %>
+              <% background_url = cl_image_path product.image, width: 500, height: 500, crop: :fill %>
+              <% else %>
+                <% background_url = 'https://source.unsplash.com/500x400/?cocktail' %><% end %>
+
+                <div class="card">
+                  <a href="/products/<%=product.id%>"><img src='<%= background_url %>'></a>
+                  <div class="card-info">
+                    <h2><%= product.name%></h2>
+
+                    <p class="price">$<%= product.cost %></p>
+                  </div>
+                  <div class = "fav-action">
+
+                    <% if user_signed_in? then %>
+
+                        <%=button_to "Add to Cart", '/products/addcart', :class=> "btn btn-success btn-lg btn-block", params:{id: product.id } %>
+
+                       <%= button_to "Remove from Favorite", '/products/removefav', :class=>"btn btn-danger btn-lg btn-block", params:{id: product.id} %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+          <% end %>
+      </div>
+    </div>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Booking', new_booking_path %>
+<%= link_to 'Checkout', checkout_bookings_path %>
+

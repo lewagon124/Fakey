@@ -33,19 +33,25 @@ class ProductsController < ApplicationController
    end
 
    def add_to_fav
-      product = params[:product_id]
+      product = params[:id]
       user = current_user
       user.fav << product unless current_user.fav.include?(product)
-      user.save!
+      user.save
       redirect_to request.referrer
+      # raise
     end
 
     def remove_from_fav
-      product = params[:product_id]
+      product = params[:id]
       user = current_user
       user.fav.delete(product)
-      user.save!
+      user.save
       redirect_to request.referrer
+    end
+
+    def fav
+      @user = current_user
+      # raise
     end
 
   # GET /products/new
@@ -63,7 +69,7 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
 
     respond_to do |format|
-      if @product.save!
+      if @product.save
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
