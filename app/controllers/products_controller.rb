@@ -97,6 +97,13 @@ class ProductsController < ApplicationController
     end
   end
 
+  def search
+      if params[:search].present?
+        sql_query = "name ILIKE :query"
+        @products = Product.where(sql_query, query: "%#{params[:search]}%")
+      end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
@@ -107,10 +114,5 @@ class ProductsController < ApplicationController
     def product_params
       params.require(:product).permit(:name, :cost, :desc, :image, :image_cache, :user_id)
     end
-    def search
-      if params[:search].present?
-        sql_query = "name ILIKE :query"
-        @products = Product.where(sql_query, query: "%#{params[:search]}%")
-      end
-    end
+
 end
