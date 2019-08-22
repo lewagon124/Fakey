@@ -4,7 +4,6 @@ Rails.application.routes.draw do
       get :checkout
     end
   end
-
   get "products/fav", to: "products#fav"
   resources :products
   devise_for :users
