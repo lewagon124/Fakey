@@ -3,5 +3,4 @@ class Product < ApplicationRecord
   has_many :bookings
 
   mount_uploader :image, PhotoUploader
-
 end
