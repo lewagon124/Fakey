@@ -1,7 +1,6 @@
-
 <p id="notice"><%= notice %></p>
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(assets/banner1.jpg);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(<%= image_path 'banner1.jpg' %>);">
 
   <p><%= link_to "Add a new product", new_product_path, class: "btn btn-ghost" %></p>
 </div>
@@ -13,130 +12,36 @@
 <div class="container">
   <div class="row">
     <% @products.each do |product| %>
-      <div class="col-12 col-md-6 col-lg-3">
+      <div class="col-12 col-md-12 col-lg-4">
+
         <% if product.image? %>
-          <% background_url = cl_image_path product.image, width: 1200, height: 500, crop: :fill %>
-        <% else %>
-          <% background_url = 'https://source.unsplash.com/500x400/?cocktail' %>
+          <% background_url = cl_image_path product.image, width: 500, height: 500, crop: :fill %>
+          <% else %>
+            <% background_url = 'https://source.unsplash.com/500x400/?cocktail' %><% end %>
+
+            <div class="card">
+              <a href="products/<%=product.id%>"><img src='<%= background_url %>'></a>
+              <div class="card-info">
+                <p><%= product.name %></p>
+                <!-- <p><%= product.desc %></p> -->
+                <h3>$<%= product.cost %></h3>
+              </div>
+            </div>
+          </div>
         <% end %>
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= background_url %>');">
-          <div class="card-description">
-            <ul>
-              <li>
-                <%= product.name %>
-                <%= product.desc %>
-                <%= product.cost %>
-              </li>
-            </ul>
-          </div>
-        </div>
       </div>
-    <% end %>
-  </div>
-</div>
+    </div>
 
-<!-- <div class="container">
-  <div class="cards-grid">
-    <% @products.each do |product| %>
-      <div class="card">
-        <%= link_to product_path(product) do  %>
-        <img src="assets/grey_hoodie.png">
-        <% end %>
-        <div class="card-info">
-          <p><%= product.name%></p>
-          <h3>$2.99</h3>
-        </div>
-      </div>
-    <% end %> -->
-<!--
-      <div class="card">
-        <a href=""><img src="assets/purple_hoodie.png"></a>
-        <div class="card-info">
-          <p>Purple Cotton hoodie</p>
-          <h3>$2.99</h3>
-        </div>
-      </div>
+    <!-- <div class="container"> <div class="cards-grid"> <% @products.each do |product| %> <div class="card"> <%= link_to product_path(product) do %> <img src="assets/grey_hoodie.png"> <% end %> <div class="card-info"> <p><%= product.name%></p>
+    <h3>$2.99</h3> </div> </div> <% end %> -->
 
-      <div class="card">
-        <a href=""><img src="assets/stripe_crew.png"></a>
-        <div class="card-info">
-          <p>Stripe Crew</p>
-          <h3>$2.99</h3>
-        </div>
-      </div>
-
-      <div class="card">
-        <a href=""><img src="assets/purple_crew.png"></a>
-        <div class="card-info">
-          <p>Purple Crew</p>
-          <h3>$2.99</h3>
-        </div>
-      </div>
-
-      <div class="card">
-          <a href=""><img src="assets/black_fleece.png"></a>
-          <div class="card-info">
-            <p>Black sweatpants</p>
-            <h3>$2.99</h3>
-          </div>
-        </div>
-
-        <div class="card">
-          <a href=""><img src="assets/grey_fleece.png"></a>
-          <div class="card-info">
-            <p>Grey sweatpants</p>
-            <h3>$2.99</h3>
-          </div>
-        </div>
-
-        <div class="card">
-          <a href=""><img src="assets/wash_denim.png"></a>
-          <div class="card-info">
-            <p>Navy denim pants</p>
-            <h3>$2.99</h3>
-          </div>
-        </div>
-
-        <div class="card">
-          <a href=""><img src="assets/burgundy_denim.png"></a>
-          <div class="card-info">
-            <p>Burgundy denim pants</p>
-            <h3>$2.99</h3>
-          </div>
-        </div>
-
-        <div class="card">
-            <a href=""><img src="assets/blue_onesie.png"></a>
-            <div class="card-info">
-              <p>Blue cotton onesie</p>
-              <h3>$2.99</h3>
-            </div>
-          </div>
-
-          <div class="card">
-            <a href=""><img src="assets/grey_onesie.png"></a>
-            <div class="card-info">
-              <p>Grey cotton onesie</p>
-              <h3>$2.99</h3>
-            </div>
-          </div>
-
-          <div class="card">
-            <a href=""><img src="assets/pink_onesie.png"></a>
-            <div class="card-info">
-              <p>Pink cotton onesie</p>
-              <h3>$2.99</h3>
-            </div>
-          </div>
-
-          <div class="card">
-            <a href=""><img src="assets/stripe_onesie.png"></a>
-            <div class="card-info">
-              <p>Stripe cotton onesie</p>
-              <h3>$2.99</h3>
-            </div>
-          </div>
- -->
+    <!-- <div class="card"> <a href=""><img src="assets/purple_hoodie.png"></a> <div class="card-info"> <p>Purple Cotton hoodie</p> <h3>$2.99</h3> </div> </div> <div class="card"> <a href=""><img src="assets/stripe_crew.png"></a> <div class="card-info">
+    <p>Stripe Crew</p> <h3>$2.99</h3> </div> </div> <div class="card"> <a href=""><img src="assets/purple_crew.png"></a> <div class="card-info"> <p>Purple Crew</p> <h3>$2.99</h3> </div> </div> <div class="card"> <a href=""><img
+    src="assets/black_fleece.png"></a> <div class="card-info"> <p>Black sweatpants</p> <h3>$2.99</h3> </div> </div> <div class="card"> <a href=""><img src="assets/grey_fleece.png"></a> <div class="card-info"> <p>Grey sweatpants</p> <h3>$2.99</h3> </div>
+    </div> <div class="card"> <a href=""><img src="assets/wash_denim.png"></a> <div class="card-info"> <p>Navy denim pants</p> <h3>$2.99</h3> </div> </div> <div class="card"> <a href=""><img src="assets/burgundy_denim.png"></a> <div class="card-info">
+    <p>Burgundy denim pants</p> <h3>$2.99</h3> </div> </div> <div class="card"> <a href=""><img src="assets/blue_onesie.png"></a> <div class="card-info"> <p>Blue cotton onesie</p> <h3>$2.99</h3> </div> </div> <div class="card"> <a href=""><img
+    src="assets/grey_onesie.png"></a> <div class="card-info"> <p>Grey cotton onesie</p> <h3>$2.99</h3> </div> </div> <div class="card"> <a href=""><img src="assets/pink_onesie.png"></a> <div class="card-info"> <p>Pink cotton onesie</p> <h3>$2.99</h3>
+    </div> </div> <div class="card"> <a href=""><img src="assets/stripe_onesie.png"></a> <div class="card-info"> <p>Stripe cotton onesie</p> <h3>$2.99</h3> </div> </div> -->
 
   </div>
 </div>

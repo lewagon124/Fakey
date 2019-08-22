@@ -1,6 +1,7 @@
       <div class="containernew">
-        <div class="col-md-6 leftside">
-          <div class="product col-md-3 service-image-left">
+        <div class="col-md-6 leftside" style="background-image: url('<%= cl_image_path @product.image %>')">
+          <div class="product col-md-3 service-image-left" >
+          <%# cl_image_tag @product.image, crop: :scale %>
           </div>
           <!-- <div class="container service1-items col-sm-2 col-md-2 pull-left"> -->
             <!-- <center>
@@ -19,36 +20,31 @@
 
         <div class="col-md-6 rightside">
           <div class="changes">
-            <%= @product.name %>
+            <h1> <%= @product.name %> </h1>
             <p></p>
-            <%= @product.desc %>
-            <p></p>
-            <%= @product.cost %>
+            <h2> <%= @product.desc %> </h2>
+
+            <p>$<%= @product.cost %> </p>
             <p></p>
           </div>
           <% if user_signed_in? then %>
-            <% if !current_user.products.include?(@products) then %>
-            <%flash[:success] = "You have added to the cart"%>
-              <%=button_to "Add to Cart", "#", :class=> "btn btn-success btn-lg btn-block" %>
-
-            <!-- type="button" class="btn btn-success btn-lg btn-block">
-              Add to Cart
-            </button> -->
-            <% else %>
-              <%= button_to "Remove from Cart", product_path(:id => @product.id ), :class=>"btn btn-success btn-lg btn-block" %>
-            <% end %>
-          <% end %>
-          </br>
-          <%= link_to products_path do%>
-            <button type="button" class="btn btn-primary btn-lg btn-block">
-              Keep Shopping
-            </button>
-          <% end %>
-          </br>
-          <button type="button" class="btn btn-danger btn-lg btn-block">
-            Favorite
-          </button>
-          </br>
-        </div>
-      </div>
+                      <% if current_user.cart.include?(@product.id.to_s) %>
+                        <%= button_to "Remove from Cart", '/products/removecart', :class=>"btn btn-success btn-lg btn-block", params:{product_id: @product.id} %>
+                      <% else %>
+                        <%=button_to "Add to Cart", '/products/addcart', :class=> "btn btn-success btn-lg btn-block", params:{product_id: @product.id } %>
+                      <% end %>
+                    <% end %>
+                    </br>
+                    <%= link_to products_path do%>
+                      <button type="button" class="btn btn-primary btn-lg btn-block">
+                        Keep Shopping
+                      </button>
+                    <% end %>
+                    </br>
+                    <button type="button" class="btn btn-danger btn-lg btn-block">
+                      Favorite
+                    </button>
+                    </br>
+                  </div>
+                </div>
 

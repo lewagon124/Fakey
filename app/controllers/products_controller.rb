@@ -11,18 +11,21 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
   end
+
   def add_to_cart
-    @product = Product.find(params[:id])
-    @user = current_user
-    @user.products << @product
-    render 'show'
-  end
-  def remove_from_cart
-    @product = Product.find(params[:id])
-    @user = current_user
-    @user.products.delete(@product)
-    render 'show'
-  end
+     product = params[:product_id]
+     user = current_user
+     user.cart << product unless current_user.cart.include?(product)
+     user.save!
+     redirect_to request.referrer
+   end
+   def remove_from_cart
+     product = params[:product_id]
+     user = current_user
+     user.cart.delete(product)
+     user.save!
+     redirect_to request.referrer
+   end
   # GET /products/new
   def new
     @product = Product.new

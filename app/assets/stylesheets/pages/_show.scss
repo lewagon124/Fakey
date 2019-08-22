@@ -4,10 +4,15 @@
   width: 100vw;
 }
 .containernew .leftside{
-  border:1px solid black;
+  // border:1px solid black;
+  display: flex;
+  justify-items: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+
 }
 .containernew .rightside{
-  border:1px solid black;
+  // border:1px solid black;
   padding: 50px;
 }
 .changes{
