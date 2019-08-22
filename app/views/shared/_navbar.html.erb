@@ -28,7 +28,7 @@
 
         <li class="nav-item item">
           <%= link_to "#", class: "nav-link" do%>
-          <i class="fa fa-heart"></i>
+          <i class="fa fa-heart"><%= current_user.fav.size %></i>
           <% end %>
         </li>
 
