@@ -1,50 +1,51 @@
-      <div class="containernew">
-        <div class="col-md-6 leftside" style="background-image: url('<%= cl_image_path @product.image %>')">
-          <div class="product col-md-3 service-image-left" >
-          <%# cl_image_tag @product.image, crop: :scale %>
-          </div>
-          <!-- <div class="container service1-items col-sm-2 col-md-2 pull-left"> -->
-            <!-- <center>
-              <a id="item-1" class="service1-item">
-                <img src="assets/grey_hoodie.png" alt=""></img>
-              </a>
-              <a id="item-2" class="service1-item">
-                <img src="http://www.corsair.com/Media/catalog/product/g/s/gs600_psu_sideview_blue_2.png" alt=""></img>
-              </a>
-              <a id="item-3" class="service1-item">
-                <img src="http://www.corsair.com/Media/catalog/product/g/s/gs600_psu_sideview_blue_2.png" alt=""></img>
-              </a>
-            </center> -->
-          </div>
+<div class="containernew">
+  <div class="col-md-6 leftside" style="background-image: url('<%= cl_image_path @product.image %>')">
+    <div class="product col-md-3 service-image-left">
+      <%# cl_image_tag @product.image, crop: :scale %>
+      </div>
+      <!-- <div class="container service1-items col-sm-2 col-md-2 pull-left"> -->
+      <!-- <center> <a id="item-1" class="service1-item"> <img src="assets/grey_hoodie.png" alt=""></img> </a> <a id="item-2" class="service1-item"> <img src="http://www.corsair.com/Media/catalog/product/g/s/gs600_psu_sideview_blue_2.png" alt=""></img>
+      </a> <a id="item-3" class="service1-item"> <img src="http://www.corsair.com/Media/catalog/product/g/s/gs600_psu_sideview_blue_2.png" alt=""></img> </a> </center> -->
+    </div>
 
+    <div class="col-md-6 rightside">
+      <div class="changes">
+        <h1>
+          <%= @product.name %>
+        </h1>
+        <p></p>
+        <h2>
+          <%= @product.desc %>
+        </h2>
 
-        <div class="col-md-6 rightside">
-          <div class="changes">
-            <h1> <%= @product.name %> </h1>
-            <p></p>
-            <h2> <%= @product.desc %> </h2>
-
-            <p>$<%= @product.cost %> </p>
-            <p></p>
-          </div>
-          <% if user_signed_in? then %>
-                      <% if current_user.cart.include?(@product.id.to_s) %>
-                        <%= button_to "Remove from Cart", '/products/removecart', :class=>"btn btn-success btn-lg btn-block", params:{product_id: @product.id} %>
-                      <% else %>
-                        <%=button_to "Add to Cart", '/products/addcart', :class=> "btn btn-success btn-lg btn-block", params:{product_id: @product.id } %>
-                      <% end %>
-                    <% end %>
-                    </br>
-                    <%= link_to products_path do%>
-                      <button type="button" class="btn btn-primary btn-lg btn-block">
-                        Keep Shopping
-                      </button>
-                    <% end %>
-                    </br>
-                    <button type="button" class="btn btn-danger btn-lg btn-block">
-                      Favorite
-                    </button>
-                    </br>
-                  </div>
-                </div>
-
+        <p>$<%= @product.cost %>
+        </p>
+        <p></p>
+      </div>
+      <% if user_signed_in? then %>
+        <% if current_user.cart.include?(@product.id.to_s) %>
+          <%= button_to "Remove from Cart", '/products/removecart', :class=>"btn btn-success btn-lg btn-block", params:{product_id: @product.id} %>
+        <% else %>
+          <%=button_to "Add to Cart", '/products/addcart', :class=> "btn btn-success btn-lg btn-block", params:{product_id: @product.id } %>
+        <% end %>
+      <% end %>
+    </br>
+    <%= link_to products_path do%>
+    <button type="button" class="btn btn-primary btn-lg btn-block">
+      Keep Shopping
+    </button>
+  <% end %>
+</br>
+<% if user_signed_in? then %>
+  <% if current_user.fav.include?(@product.id.to_s) %>
+    <%= button_to "Remove from Favorite", '/products/removefav', :class=>"btn btn-danger btn-lg btn-block", params:{product_id: @product.id} %>
+  <% else %>
+    <%=button_to "Add to Favorite", '/products/addfav', :class=> "btn btn-danger btn-lg btn-block", params:{product_id: @product.id } %>
+  <% end %>
+<% end %>
+<!-- <button type="button" class="btn btn-danger btn-lg btn-block">
+  Favorite
+</button> -->
+</br>
+</div>
+</div>

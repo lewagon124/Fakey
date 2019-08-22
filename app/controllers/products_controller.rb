@@ -19,6 +19,7 @@ class ProductsController < ApplicationController
      user.save!
      redirect_to request.referrer
    end
+
    def remove_from_cart
      product = params[:product_id]
      user = current_user
@@ -26,6 +27,23 @@ class ProductsController < ApplicationController
      user.save!
      redirect_to request.referrer
    end
+
+   def add_to_fav
+      product = params[:product_id]
+      user = current_user
+      user.fav << product unless current_user.fav.include?(product)
+      user.save!
+      redirect_to request.referrer
+    end
+
+    def remove_from_fav
+      product = params[:product_id]
+      user = current_user
+      user.fav.delete(product)
+      user.save!
+      redirect_to request.referrer
+    end
+
   # GET /products/new
   def new
     @product = Product.new
