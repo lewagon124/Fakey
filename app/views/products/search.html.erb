@@ -1,0 +1,29 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(<%= image_path 'banner1.jpg' %>);">
+</div>
+  <br>
+  <br>
+  <h2>Search Results</h2>
+  <br>
+  <div class="container">
+    <div class="row">
+      <% @products.each do |product| %>
+        <div class="col-12 col-md-12 col-lg-4">
+
+          <% if product.image? %>
+            <% background_url = cl_image_path product.image, width: 500, height: 500, crop: :fill %>
+            <% else %>
+              <% background_url = 'https://source.unsplash.com/500x400/?cocktail' %><% end %>
+
+              <div class="card">
+                <a href="products/<%=product.id%>"><img src='<%= background_url %>'></a>
+                <div class="card-info">
+                  <p><%= product.name %></p>
+                  <!-- <p><%= product.desc %></p> -->
+                  <h3>$<%= product.cost %></h3>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
