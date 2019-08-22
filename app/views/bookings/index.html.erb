@@ -2,31 +2,70 @@
 
 <h1>Bookings</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Start</th>
-      <th>End</th>
-      <th>User</th>
-      <th>Product</th>
-      <th>Totalcost</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<!-- <table> <thead> <tr> <th>Start</th> <th>End</th> <th>User</th> <th>Product</th> <th>Totalcost</th> <th colspan="3"></th> </tr> </thead> -->
 
-  <tbody>
-    <% @bookings.each do |booking| %>
-      <tr>
-        <td><%= booking.start %></td>
-        <td><%= booking.end %></td>
-        <td><%= booking.user %></td>
-        <td><%= booking.product %></td>
-        <td><%= booking.totalcost %></td>
-        <td><%= link_to 'Show', booking %></td>
-        <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
-        <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+<tbody>
+
+  <div class="container">
+    <div class="row">
+        <% @bookings.each do |booking| %>
+
+
+          <% product = Product.find(booking.product_id) %>
+
+
+
+          <div class="col-12 col-md-12 col-lg-4">
+
+            <% if product.image? %>
+              <% background_url = cl_image_path product.image, width: 500, height: 500, crop: :fill %>
+              <% else %>
+                <% background_url = 'https://source.unsplash.com/500x400/?cocktail' %><% end %>
+
+
+                <div class="card">
+                  <a href="products/<%=product.id%>"><img src='<%= background_url %>'></a>
+                  <div class="card-info">
+                    <h2><%= product.name %></h2>
+                    <h3>Rental Date:<%= booking.start.strftime("%F")%>
+                      -
+                      <%= booking.end.strftime("%F")%>
+                    </h3>
+                    <p class="price">$<%= booking.totalcost %></p>
+                  </div>
+                  <div>
+                    <% if user_signed_in? then %>
+                        <%= button_to "Remove from Cart", '/products/removecart', :class=>"btn btn-success btn-lg btn-block", params:{id: product.id} %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+<!--
+            <div class="card-product">
+              <img src="<%= product.image.url %>"/>
+              <div class="card-product-infos">
+                <h2><%= product.name %></h2>
+                <p>Product description with <strong>relevant info</strong> only.</p>
+                <h3><%= booking.start.strftime("%F")%>
+                  -
+                  <%= booking.end.strftime("%F")%>
+                </h3>
+                <p>$<%= booking.totalcost %></p>
+                <td><%= link_to 'Show', booking %></td>
+                <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
+                <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </div>
+            </div> -->
+
+
+
+          <% end %>
+      </div>
+    </div>
   </tbody>
 </table>
 

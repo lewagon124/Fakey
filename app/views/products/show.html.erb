@@ -24,9 +24,9 @@
       </div>
       <% if user_signed_in? then %>
         <% if current_user.cart.include?(@product.id.to_s) %>
-          <%= button_to "Remove from Cart", '/products/removecart', :class=>"btn btn-success btn-lg btn-block", params:{product_id: @product.id} %>
+          <%= button_to "Remove from Cart", '/products/removecart', :class=>"btn btn-success btn-lg btn-block", params:{id: @product.id} %>
         <% else %>
-          <%=button_to "Add to Cart", '/products/addcart', :class=> "btn btn-success btn-lg btn-block", params:{product_id: @product.id } %>
+          <%=button_to "Add to Cart", '/products/addcart', :class=> "btn btn-success btn-lg btn-block", params:{id: @product.id } %>
         <% end %>
       <% end %>
     </br>
@@ -38,9 +38,9 @@
 </br>
 <% if user_signed_in? then %>
   <% if current_user.fav.include?(@product.id.to_s) %>
-    <%= button_to "Remove from Favorite", '/products/removefav', :class=>"btn btn-danger btn-lg btn-block", params:{product_id: @product.id} %>
+    <%= button_to "Remove from Favorite", '/products/removefav', :class=>"btn btn-danger btn-lg btn-block", params:{id: @product.id} %>
   <% else %>
-    <%=button_to "Add to Favorite", '/products/addfav', :class=> "btn btn-danger btn-lg btn-block", params:{product_id: @product.id } %>
+    <%=button_to "Add to Favorite", '/products/addfav', :class=> "btn btn-danger btn-lg btn-block", params:{id: @product.id } %>
   <% end %>
 <% end %>
 <!-- <button type="button" class="btn btn-danger btn-lg btn-block">
