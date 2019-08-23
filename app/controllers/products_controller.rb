@@ -108,9 +108,12 @@ class ProductsController < ApplicationController
   end
 
   def search
+
       if params[:search].present?
         sql_query = "name ILIKE :query"
         @products = Product.where(sql_query, query: "%#{params[:search]}%")
+
+        #, :status => 200, :content_type => 'text/html'
       end
   end
 

@@ -6,6 +6,7 @@
   <br>
   <div class="container">
     <div class="row">
+      <% if   @products.present? %>
       <% @products.each do |product| %>
         <div class="col-12 col-md-12 col-lg-4">
 
@@ -23,6 +24,9 @@
                 </div>
               </div>
             </div>
+          <% end %>
+          <% else %>
+          <p> No Search Results </p>
           <% end %>
         </div>
       </div>
