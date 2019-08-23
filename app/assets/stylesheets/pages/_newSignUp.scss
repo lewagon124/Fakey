@@ -1,4 +1,4 @@
-.containersignup{
+.containersignup {
   display:flex;
   height: 80vh;
   flex-direction: column;
@@ -10,31 +10,42 @@
   -o-background-size: cover;
   background-size: cover;
 }
-abbr{
+abbr {
   display:none;
 }
-.signup{
+.signup {
  border:solid 1px black;
  padding-left: 206px;
  padding-right: 206px;
 }
-.centered{
+.centered {
   display:flex;
   align-items:center;
   justify-content: center;
   color:black;
 }
-.fa-6x{
+.fa-6x {
   display:flex;
   align-items:center;
   justify-content: center;
   color:black;
 }
-.nounderline:hover{
+.nounderline:hover {
   list-style-type: none;
   text-decoration: none;
 }
 
-.email, .password, .passwordcon{
+.email, .password, .passwordcon {
   border-radius:0.4em;
 }
+
+#sign-up {
+  background: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: 1px solid #4A4A4A;
+  opacity: 0.8;
+}
+
+
+
