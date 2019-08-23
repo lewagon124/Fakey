@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
      user.cart << @product.id unless current_user.cart.include?(@product)
      user.save!
      @booking = Booking.new(product_id: @product.id, user_id: user.id, start: Date.today, end: Date.today + 30.days)
-     @booking.totalcost = ((@booking.end.to_date-@booking.start.to_date).to_i)*@product.cost
+     @booking.totalcost = ((@booking.end.to_date-@booking.start.to_date).to_i)*@product.cost*0.2
      @booking.save
      redirect_to request.referrer
    end
