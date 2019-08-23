@@ -1,8 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(<%= image_path 'banner1.jpg' %>);">
-
-  <p><%= link_to "Add a new product", new_product_path, class: "btn btn-ghost" %></p>
+  <% if !current_user.nil? %>
+    <p><%= link_to "Add a new product", new_product_path, class: "btn btn-ghost" %></p>
+  <% end %>
 </div>
 <br>
 <br>

@@ -1,4 +1,3 @@
-
 <%@product = Product.find(@bookings[0].product_id)%>
 <%@cost = @product.cost%>
 <%@month = ((@bookings[0].end.to_date-@bookings[0].start.to_date).to_i)/30%>
