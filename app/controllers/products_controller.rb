@@ -56,7 +56,11 @@ class ProductsController < ApplicationController
 
   # GET /products/new
   def new
-    @product = Product.new
+    if user_signed_in?
+       @product = Product.new
+    else
+      redirect_to user_session_path, notice: 'Please log in, my friend.'
+    end
   end
 
   # GET /products/1/edit
