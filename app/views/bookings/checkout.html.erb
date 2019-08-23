@@ -1,3 +1,8 @@
+
+<%@product = Product.find(@bookings[0].product_id)%>
+<%@cost = @product.cost%>
+<%@month = ((@bookings[0].end.to_date-@bookings[0].start.to_date).to_i)/30%>
+
 <div class="container">
   <div class="py-5 text-center">
     <img class="d-block mx-auto mb-4" src="./Checkout example for Bootstrap_files/bootstrap-solid.svg" alt="" width="72" height="72">
@@ -15,26 +20,27 @@
         <ul class="list-group mb-3">
           <li class="list-group-item d-flex justify-content-between lh-condensed">
             <div>
-              <h6 class="my-0">Grey hoodies</h6>
-              <small class="text-muted">Brief description</small>
+              <h6 class="my-0"><%=@product.name%></h6>
+              <small class="text-muted"><%=@product.desc%></small>
             </div>
-            <span class="text-muted">$12/day</span>
+            <span class="text-muted">$<%=@product.cost%>/month</span>
           </li>
           <li class="list-group-item d-flex justify-content-between lh-condensed">
             <div>
-              <h6 class="my-0">Days</h6>
+              <h6 class="my-0">Month(s)</h6>
               <!-- booking.start %> - booking.end %> -->
-              <small class="text-muted">08/11/2019 - 09/11/2019</small>
+
+              <small class="text-muted"><%= @bookings[0].start.strftime("%Y/%m")%>-<%= @bookings[0].end.strftime("%Y/%m")%></small>
             </div>
             <!-- count the Days -->
-            <span class="text-muted">31 days</span>
+            <span class="text-muted"><%=@month%></span>
           </li>
           <li class="list-group-item d-flex justify-content-between lh-condensed">
             <div>
               <h6 class="my-0">Total (USD)</h6>
-              <small class="text-muted">$12 x 31 days</small>
+              <small class="text-muted">$<%=@cost%> x <%= @month %> month(s)</small>
             </div>
-            <strong>$372</strong>
+            <strong>$<%=@cost*@month%></strong>
           </li>
 ​
         </ul>
