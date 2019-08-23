@@ -1,7 +1,8 @@
 <h1 class="page-header">Bookings</h1>
+    <p id="notice"><%= notice %></p>
 <div class="container">
   <div class="row justify-content-center">
-    <p id="notice"><%= notice %></p>
+
 
     <!-- <table> <thead> <tr> <th>Start</th> <th>End</th> <th>User</th> <th>Product</th> <th>Totalcost</th> <th colspan="3"></th> </tr> </thead> -->
 
@@ -21,9 +22,7 @@
                   <a href="products/<%=product.id%>"><img src='<%= background_url %>'></a>
                   <div class="card-info">
                     <h2><%= product.name %></h2>
-                    <h3>Rental Date:<%= booking.start.strftime("%F")%>
-                      -
-                      <%= booking.end.strftime("%F")%>
+                    <h3>Rental Month: <%= booking.start.strftime("%Y/%m")%>-<%= booking.end.strftime("%Y/%m")%>
                     </h3>
                     <p class="price">$<%= booking.totalcost %></p>
                   </div>
