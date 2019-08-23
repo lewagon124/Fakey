@@ -9,6 +9,7 @@
   justify-items: center;
   background-size: contain;
   background-repeat: no-repeat;
+  padding-left: 20px;
 
 }
 .containernew .rightside{
@@ -21,4 +22,8 @@
 }
 .service-image-left{
   // background-image: url(<%=image_url('banner1.jpg')%>);
+}
+
+.show {
+
 }
