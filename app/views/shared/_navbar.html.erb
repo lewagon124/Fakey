@@ -17,15 +17,9 @@
 
         <li class="nav-item active item">
           <%= form_tag ("/search"), method: :'get' do %>
-          <p>
             <%= text_field_tag :search, params[:search] %>
             <%= submit_tag "Search", class: "btn btn-primary" %>
-          </p>
           <% end %>
-          <!-- <form action="search">
-            <input type="text" placeholder="Search" name="search">
-            <input type="submit"><i class="fa fa-search"></i>
-          </form> -->
         </li>
 
 
@@ -50,29 +44,33 @@
           </div>
         </li>
 
+
+
       <% else %>
-        <li class="nav-item">
-          <%= link_to new_user_session_path, class: "nav-link" do%>
+      <div class="notlogin">
+        <li class="nav-item item loginb">
+          <%= link_to new_user_session_path do%>
             <button type="button" class="btn btn-default">Log In</button>
           <% end %>
         </li>
 
-        <li class="nav-item active item">
-          <%= link_to "#", class: "nav-link" do%>
-          <i class="fa fa-search"></i>
+        <li class="nav-item item extra">
+          <%= form_tag ("/search"), class: "btn-all", method: :'get' do %>
+            <%= text_field_tag :search, params[:search] %>
+            <%= submit_tag "Search", class: "btn btn-primary" %>
           <% end %>
         </li>
 
 
         <li class="nav-item item">
           <%= link_to "#", class: "nav-link" do%>
-          <i class="fa fa-heart"></i>
+            <i class="fa fa-heart"></i>
           <% end %>
         </li>
 
         <li class="nav-item item">
           <%= link_to "#", class: "nav-link" do%>
-          <i class="fa fa-shopping-cart"></i>
+            <i class="fa fa-shopping-cart"></i>
           <% end %>
         </li>
 
@@ -84,5 +82,6 @@
       <% end %>
 
     </ul>
+  </div>
   </div>
 </div>

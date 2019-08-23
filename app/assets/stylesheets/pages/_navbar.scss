@@ -6,6 +6,7 @@
 .item{
   font-size:20px;
   align-items: center;
+  margin: 0px;
 }
 .profile{
   color:black;
@@ -21,4 +22,20 @@
 .active button {
   float:left;
 }
+.notlogin{
+  display:flex;
+  padding: 0px;
 
+}
+.loginb{
+  margin-right: 10px;
+  display:flex;
+  margin-top:5px;
+}
+.extra{
+  display:flex;
+  justify-content:center;
+}
+.btn-all{
+  display:flex;
+}
