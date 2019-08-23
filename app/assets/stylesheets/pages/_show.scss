@@ -3,27 +3,23 @@
   height: 80vh;
   // width: 100vw;
 }
+
 .containernew .leftside{
   // border:1px solid black;
   display: flex;
   // justify-items: center;
   background-size: contain;
   background-repeat: no-repeat;
-  padding-left: 20px;
+  margin-top: 40px;
 
 }
+
 .containernew .rightside{
   // border:1px solid black;
   padding: 70px;
 }
+
 .changes{
   font-size: 30px;
   text-align: center;
-}
-.service-image-left{
-  // background-image: url(<%=image_url('banner1.jpg')%>);
-}
-
-.show {
-
 }
