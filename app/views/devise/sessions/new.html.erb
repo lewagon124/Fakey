@@ -1,39 +1,46 @@
-<div class="signupcontainer" style="background-image: url(<%=image_url('banner1.jpg')%>)">
-  <div class="leftwindow" >
-    <h2 id="title">SIGN IN</h2>
-    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="form-inputs">
-        <%= f.input :email,
-                    placeholder: "Email",
-                    required: false,
-                    # html property
-                    autofocus: true,
-                    :class => 'email',
-                    label: '&nbsp;'.html_safe,
-                    input_html: { autocomplete: "email" } %>
-        <%= f.input :password,
-                    placeholder: "Password",
-                    required: false,
-                    :class => 'password',
-                    label: '&nbsp;'.html_safe,
+<div class="signupcontainer" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(<%= image_path 'banner1.jpg' %>);">
 
-                    input_html: { autocomplete: "current-password" } %>
-      </div>
-      <div class="form-actions">
-        <%= f.button :submit, "Sign in", :class => 'button'%>
-      </div>
-      </br>
-      <%= render "devise/shared/links" %>
-    <% end %>
-  </div>
-  <div class="rightwindow">
-    <div class="SignUp">
-      <h3 id="title">Need an account?</h3>
-      </br>
-      <p>Create an account to checkout faster, view order history, and more.</p>
-      </br>
-      <%=link_to "Create Account", new_user_registration_path, :class=> "pick"%>
+  <div class="leftwindow" >
+    <div class="signin">
+      <h2 id="title">SIGN IN</h2>
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-inputs">
+          <%= f.input :email,
+                      placeholder: "Email",
+                      required: false,
+                      # html property
+                      autofocus: true,
+                      :class => 'email',
+                      label: '&nbsp;'.html_safe,
+                      input_html: { autocomplete: "email" } %>
+          <%= f.input :password,
+                      placeholder: "Password",
+                      required: false,
+                      :class => 'password',
+                      label: '&nbsp;'.html_safe,
+
+                      input_html: { autocomplete: "current-password" } %>
+                <div class="form-actions">
+                  <%= f.button :submit, "Sign in", :class => 'button'%>
+                </div>
+                </br>
+                <%= render "devise/shared/links" %>
+              <% end %>
+            </div>
+        </div>
+    </div>
+
+    <div class="rightwindow">
+      <div class="newacc">
+        <div class="SignUp">
+          <h3 id="title">NEED AN ACCOUNT?</h3>
+          </br>
+          <p>Create an account to checkout faster, view order history, and more.</p>
+          </br>
+          <%=link_to "Create Account", new_user_registration_path, :class=> "pick"%>
+        </div>
     </div>
   </div>
+
 </div>
 
