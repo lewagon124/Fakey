@@ -1,10 +1,10 @@
-<h1>My wishlist</h1>
+<h1 class="page-header">My wishlist</h1>
 
 
 <tbody>
 
   <div class="container">
-    <div class="row">
+    <div class="row  justify-content-center">
 
         <% @user.fav.each do |fav| %>
 
@@ -42,7 +42,6 @@
 </table>
 
 <br>
-
-<%= link_to 'New Booking', new_booking_path %>
-<%= link_to 'Checkout', checkout_bookings_path %>
-
+<div class="wrapper">
+    <%= link_to 'Bookings', bookings_path, class: "btn btn-primary", id:"booking-checkout" %>
+</div>
