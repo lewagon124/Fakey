@@ -24,7 +24,7 @@
                     <h2><%= product.name %></h2>
                     <h3>Rental Month: <%= booking.start.strftime("%Y/%m")%>-<%= booking.end.strftime("%Y/%m")%>
                     </h3>
-                    <p class="price">$<%= booking.totalcost %></p>
+                    <p class="price">Total Price: $<%= booking.totalcost %></p>
                   </div>
                   <div>
                     <% if user_signed_in? then %>
